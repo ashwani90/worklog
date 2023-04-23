@@ -7,6 +7,7 @@ class Timestampable(models.Model):
     updated_at = models.DateTimeField()
     class Meta:
         abstract = True
+        ordering = ['created_at']
     
 class Category(Timestampable):
     name = models.CharField(max_length=250)
