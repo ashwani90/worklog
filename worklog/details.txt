@@ -1,0 +1,9 @@
+Log
+
+description, type, created_at,updated_at, category, time in hours
+
+work on something, normal work, date,date,work_log, 2
+
+
+tamatar
+pyaaz 

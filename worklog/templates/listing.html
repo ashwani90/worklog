@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Log Listing </h1>
+
+{% if messages %}
+<ul>
+    {% for message in messages %}
+    <li>
+        {{message}}
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<ul>
+    {% for log in logs %}
+    <li><log.id/li>
+        {% endfor %}
+</ul>
+{% endblock content %}

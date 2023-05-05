@@ -1,2 +1,7 @@
 Django
 psycopg
+django-cors-headers
+djangorestframework
+markdown
+django-filter
+graphene-django
