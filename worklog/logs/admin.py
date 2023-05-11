@@ -1,10 +1,13 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Category,Type,Log,Note,Post
+from .models import Category, Type, Log, Note, Post, HealthType, Exercise, HealthLog
 
 admin.site.register(Category)
 admin.site.register(Note)
+admin.site.register(HealthType)
+admin.site.register(Exercise)
+admin.site.register(HealthLog)
 
 @admin.action(description="Mark as completed")
 def make_completed(modeladmin, request, queryset):

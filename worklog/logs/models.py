@@ -41,6 +41,34 @@ class Note(Timestampable):
     def __str__(self):
         return self.heading
     
+class HealthType(Timestampable):
+    name = models.CharField(max_length=250)
+    description = models.TextField()
+    
+    def __str__(self):
+        return self.name
+    
+class Exercise(Timestampable):
+    name = models.CharField()
+    description = models.TextField()
+    
+    def __str__(self):
+        return self.name    
+    
+# I could have added this to the above log but I created a seperate as I think this is far different then the normal log
+class HealthLog(Timestampable):
+    description = models.TextField()
+    healthtype = models.ForeignKey(HealthType,on_delete=models.DO_NOTHING)
+    # this time spent I will hope this is a float value
+    time_spent = models.IntegerField(default=0)
+    calorie = models.IntegerField(default=0)
+    operation = models.SmallIntegerField(default=0)
+    exercise_type = models.ForeignKey(Exercise,on_delete=models.DO_NOTHING)
+    reps = models.IntegerField(default=0)
+    
+    def __str__(self):
+        return self.description + ' : ' + str(self.time_spent) + ' : ' + self.created_at.strftime("%d/%m/%Y")
+    
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
     website = models.URLField(blank=True)

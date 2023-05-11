@@ -1,4 +1,4 @@
-from .models import Note, Log, Category, Type
+from .models import Note, Log, Category, Type, HealthType, HealthLog, Exercise
 from rest_framework import serializers
 
 # to save all this effort we can use HyperLinkedModelSerializer
@@ -33,3 +33,18 @@ class TypeSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Type
         fields = ['id','description', 'name', 'completed']
+        
+class HealthTypeSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = HealthType
+        fields = ['id','description', 'name']
+        
+class HealthLogSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = HealthLog
+        fields = ['id','description', 'healthtype', 'time_spent', 'calorie', 'operation', 'reps']
+        
+class ExerciseSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Exercise
+        fields = ['id','description', 'name']

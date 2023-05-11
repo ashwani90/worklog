@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from rest_framework import viewsets
-from .models import Note, Log, Category, Type
-from .serializers import NoteSerializer, LogSerializer, CategorySerializer, TypeSerializer
+from .models import Note, Log, Category, Type, HealthType, Exercise, HealthLog
+from .serializers import NoteSerializer, LogSerializer, CategorySerializer, TypeSerializer, HealthTypeSerializer, ExerciseSerializer, HealthLogSerializer
 from django.http import HttpResponse
 from django.contrib.auth.decorators import user_passes_test, login_required
 
@@ -21,6 +21,18 @@ class CategoryViewSet(viewsets.ModelViewSet):
 class TypeViewSet(viewsets.ModelViewSet):
     queryset = Type.objects.all()
     serializer_class = TypeSerializer
+    
+class HealthTypeViewSet(viewsets.ModelViewSet):
+    queryset = HealthType.objects.all()
+    serializer_class = HealthTypeSerializer
+    
+class ExerciseViewSet(viewsets.ModelViewSet):
+    queryset = Exercise.objects.all()
+    serializer_class = ExerciseSerializer
+    
+class HealthLogViewSet(viewsets.ModelViewSet):
+    queryset = HealthLog.objects.all()
+    serializer_class = HealthLogSerializer
     
 @user_passes_test(lambda user: user.is_staff)
 @login_required
