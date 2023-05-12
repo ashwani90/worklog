@@ -5,3 +5,10 @@ djangorestframework
 markdown
 django-filter
 graphene-django
+pandas
+selenium
+beautifulsoup4
+django-extensions
+requests
+lxml
+html5lib

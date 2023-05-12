@@ -39,6 +39,7 @@ CORS_ORIGIN_ALLOW_ALL=True
 # Application definition
 
 INSTALLED_APPS = [
+    "newspaper.apps.NewspaperConfig",
     "logs.apps.LogsConfig",
     'django.contrib.admin',
     'django.contrib.auth',
