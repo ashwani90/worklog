@@ -28,6 +28,7 @@ class News(Timestampable):
     new_head = models.CharField(default='', max_length=2000)
     description = models.TextField()
     source = models.CharField(max_length=500)
+    type = models.SmallIntegerField(default=0)
     
     @receiver(pre_save)
     def set_dates(sender, instance, **kwargs):
