@@ -12,3 +12,4 @@ django-extensions
 requests
 lxml
 html5lib
+openai

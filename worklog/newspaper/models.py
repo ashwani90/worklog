@@ -24,11 +24,19 @@ class NewspaperContent(Timestampable):
     by = models.CharField(default='',max_length=500)
     from_ref = models.CharField(default='',max_length=500)
     
+    def __str__(self):
+        return self.heading
+    
 class News(Timestampable):
     new_head = models.CharField(default='', max_length=2000)
     description = models.TextField()
-    source = models.CharField(max_length=500)
+    source = models.CharField(max_length=500, default='')
     type = models.SmallIntegerField(default=0)
+    # o - not approved, 1 - approved, 2 - rejected
+    approved = models.SmallIntegerField(default=0)
+    
+    def __str__(self):
+        return self.new_head
     
     @receiver(pre_save)
     def set_dates(sender, instance, **kwargs):
