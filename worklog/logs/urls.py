@@ -1,5 +1,6 @@
 from rest_framework import routers
 from .views import NoteViewSet,LogViewSet, CategoryViewSet, TypeViewSet, HealthTypeViewSet, ExerciseViewSet, HealthLogViewSet
+from newspaper.views import NewsViewSet, NewspaperContentViewSet
 from django.urls import path, include
 from . import views as log_views
 from django.views.decorators.csrf import csrf_exempt
@@ -13,6 +14,8 @@ router.register(r'log', LogViewSet)
 router.register(r'health_type', HealthTypeViewSet)
 router.register(r'exercise', ExerciseViewSet)
 router.register(r'health', HealthLogViewSet)
+router.register(r'news', NewsViewSet)
+router.register(r'newspaper-content', NewspaperContentViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
