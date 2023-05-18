@@ -16,3 +16,4 @@ openai
 sentence-transformers==1.2.0
 umap-learn[plot]==0.5.1
 hdbscan==0.8.26
+nltk
