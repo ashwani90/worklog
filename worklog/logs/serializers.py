@@ -17,12 +17,7 @@ class NoteSerializer(serializers.Serializer):
     class Meta:
         model = Note
         fields = ['description', 'heading']
-        
-class LogSerializer(serializers.HyperlinkedModelSerializer):
-    
-    class Meta:
-        model = Log
-        fields = ['id','description', 'time_spent']
+
         
 class CategorySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -33,6 +28,23 @@ class TypeSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Type
         fields = ['id','description', 'name', 'completed']
+
+        
+class LogSerializer(serializers.ModelSerializer):
+    category = serializers.SlugRelatedField(
+        required=True,
+        slug_field='name',
+        queryset=Category.objects.all()
+    )
+    type = serializers.SlugRelatedField(
+        required=True,
+        slug_field='name',
+        queryset=Type.objects.all()
+    )
+    class Meta:
+        model = Log
+        fields = ['id','description', 'time_spent', 'category', 'type']
+
         
 class HealthTypeSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

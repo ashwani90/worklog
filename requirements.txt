@@ -21,3 +21,4 @@ contextualized-topic-models
 torch
 torchvision
 scikit-learn
+langchain[all]

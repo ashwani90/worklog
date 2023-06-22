@@ -76,13 +76,49 @@
       font-weight: 700;
       text-transform: uppercase;
     }
-    
+
     @media only all and (min-width: 600px) {
+      .size-1 {
+        -moz-columns: 2;
+        /* How many columns? */
+        
+        -webkit-columns: 2;
+        columns: 2;
+        -webkit-column-gap: 20px;
+        -moz-column-gap: 20px;
+        column-gap: 20px;
+        line-height: 1.5em;
+        font-size: 1em;
+        -webkit-column-rule: 2px outset #444;
+        -moz-column-rule: 2px outset #444;
+        column-rule: 2px outset #444;
+      }
+      h1 {
+        font-size: 8em;
+        column-span: all;
+        -webkit-column-span: all;
+      }
+      .time {
+        column-span: all;
+        -webkit-column-span: all;
+      }
+      p {
+        text-align: justify;
+        text-justify: inter-word;
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+        hyphenate-character: "\u2605";
+      }
+    }
+    
+    /* @media only all and (min-width: 600px) {
       article {
         -moz-columns: 3;
         /* How many columns? */
         
-        -webkit-columns: 3;
+        /*-webkit-columns: 3;
         columns: 3;
         -webkit-column-gap: 40px;
         -moz-column-gap: 40px;
@@ -111,23 +147,25 @@
         hyphens: auto;
         hyphenate-character: "\u2605";
       }
-    }
+    } */
   
   </style>
 <article>
     <h1>Newser</h1>
   
     <div class="time">
-      <time>Tuesday, September, 5th, 2014</time>
+      <time>{{today}}</time>
     </div>
   
     <section>
-      <h2>Subheading to the article</h2>
+      {% for log in news %}
+      <section class="size-1">
+      <h2>{{log.head}}</h2>
   
-      <p lang="en">Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Sed posuere consectetur est at lobortis. Morbi leo risus, porta ac
-        consectetur ac, vestibulum at eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit tempus porttitor.</p>
+      <p lang="en">{{log.description}}</p>
+    </section>
   
-      <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus
+      <!-- <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus
         dolor auctor. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
   
       <blockquote>
@@ -136,8 +174,8 @@
   
       <p>Aenean lacinia bibendum nulla sed consectetur. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec id elit non mi porta gravida at eget metus. Cras justo odio, dapibus ac facilisis in, egestas eget
         quam. Cras mattis consectetur purus sit amet fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras mattis consectetur purus sit amet fermentum.</p>
-  
-      <h3>Subheading</h3>
+   -->
+      <!-- <h3>Subheading</h3>
   
       <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cum sociis natoque penatibus et magnis dis parturient montes,
         nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur.</p>
@@ -150,8 +188,8 @@
         posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
   
       <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem
-        nec elit.</p>
-  
+        nec elit.</p> -->
+        {% endfor %}
     </section>
   
   </article>
