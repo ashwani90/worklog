@@ -22,3 +22,6 @@ torch
 torchvision
 scikit-learn
 langchain[all]
+accelerate
+einops
+xformers
