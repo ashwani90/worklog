@@ -48,3 +48,6 @@ def view_log(request, log_id):
         "log": log
     }
     return render(request, "view_log.html", data)
+
+def bulk_create_log(request, data):
+    pass

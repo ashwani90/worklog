@@ -25,5 +25,6 @@ urlpatterns = [
     path('app/', log_views.listing, name='listing'),
     path("app/view_log/<int:log_id>", log_views.view_log, name="view_log"),
     path("app/acc", include("django.contrib.auth.urls")),
+    path("log_bulk", log_views.bulk_create_log, name="bulk_create_log")
     # path("graphql", csrf_exempt(GraphQLView.as_view(graphiql=True))),
 ]
